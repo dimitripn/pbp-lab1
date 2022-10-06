@@ -52,21 +52,52 @@
 </div>
 
 <br>
-<table class="center">
-    <tr>
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for barang in list_barang %}
-    <tr>
-        <th>{{barang.nama_barang}}</th>
-        <th>{{barang.harga_barang}}</th>
-        <th>{{barang.deskripsi}}</th>
-    </tr>
-{% endfor %}
-</table>
+<form method="POST" action="">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>Nama Barang:</td>
+        <td>
+          <input
+            type="text"
+            name="nama_barang"
+            placeholder="Nama Barang"
+            id="nama_barang"
+            class="form-control"
+          />
+        </td>
+      </tr>
+  
+      <tr>
+        <td>Harga Barang:</td>
+        <td>
+          <input
+            type="text"
+            name="harga_barang"
+            id="harga_barang"
+            placeholder="Harga Barang"
+            class="form-control"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Deskripsi:</td>
+        <td>
+          <input
+            type="text"
+            name="deskripsi"
+            placeholder="Deskripsi"
+            class="form-control"
+            id="deskripsi"
+          />
+        </td>
+      </tr>
+  
+      <tr>
+        <td></td>
+      <td>  <button id="submit_btn">Tambah Barang</button></td>    </tr>
+    </table>
+  </form>
 
 <div class="center">
     <h6>Sesi terakhir login: {{ last_login }}</h6>
